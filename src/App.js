@@ -7,27 +7,34 @@ import Navigation from './components/Navigation';
 import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
-function App() {
+import {ProductContext} from './contexts/ProductContext'
+
+
+function App()
+{
 	const [products] = useState(data);
 	const [cart, setCart] = useState([]);
 
-	const addItem = item => {
+	const addItem = item =>
+	{
 		// add the given item to the cart
-		setCart([...cart,item])   // remember syntax and JS Shortcuts and you will get far faster. 
+		setCart([...cart, item])   // remember syntax and JS Shortcuts and you will get far faster. 
 	};
 
 	return (
 		<div className="App">
-			<Navigation cart={cart} />
+			<ProductContext.Provider>
+				<Navigation cart={cart} />
 
-			{/* Routes */}
-			<Route exact path="/">
-				<Products products={products} addItem={addItem} />
-			</Route>
+				{/* Routes */}
+				<Route exact path="/">
+					<Products products={products} addItem={addItem} />
+				</Route>
 
-			<Route path="/cart">
-				<ShoppingCart cart={cart} />
-			</Route>
+				<Route path="/cart">
+					<ShoppingCart cart={cart} />
+				</Route>
+			</ProductContext.Provider>
 		</div>
 	);
 }
