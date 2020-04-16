@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
-import data from './data';
+import { Route } from 'react-router-dom';  // good to remind oneself what is required for this as a refresher
+import data from './data'; // Just a simple JSON like object. 
 
 // Components
 import Navigation from './components/Navigation';
@@ -13,6 +13,7 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
+		setCart([...cart,item])
 	};
 
 	return (
@@ -32,3 +33,9 @@ function App() {
 }
 
 export default App;
+
+
+
+// ok so I have a sense of the structure. products (lower case) will not change so hence it does not require a setter. Cart will change so it requires a setter. addItem just takes a param. 
+
+
