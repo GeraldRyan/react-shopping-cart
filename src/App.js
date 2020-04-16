@@ -13,7 +13,7 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
-		setCart([...cart,item])
+		setCart([...cart,item])   // remember syntax and JS Shortcuts and you will get far faster. 
 	};
 
 	return (
